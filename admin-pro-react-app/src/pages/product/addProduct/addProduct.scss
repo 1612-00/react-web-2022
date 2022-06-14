@@ -1,0 +1,31 @@
+@use '../../../scss/abstracts/' as *;
+
+.productAdd {
+
+    &__wrapper {
+        @include flex(flex-start, flex-start);
+
+        @include tablet {
+            flex-direction: column;
+
+            .productAdd__form,
+            .productAdd__show {
+                width: 100%;
+            }
+
+            .productAdd__show {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    &__form,
+    &__show {
+        flex: 5;
+    }
+
+    &__form {
+        margin-right: 2rem;
+    }
+}

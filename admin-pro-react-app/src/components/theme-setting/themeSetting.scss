@@ -1,0 +1,171 @@
+@use '../../scss/abstracts/' as *;
+
+.theme-setting {
+    --setting-width: 16rem;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: -16rem;
+    transition: all 0.3s ease;
+    height: 100vh;
+    width: var(--setting-width);
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.13);
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.13);
+
+    .overlay-themeSetting {
+        width: 100vw;
+    }
+
+    &.settingOpen {
+        right: 0;
+        transition: all 0.3s ease;
+
+        .overlay-themeSetting {
+            background-color: $overlay;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: calc(100% - 16rem);
+            z-index: 0;
+            opacity: 0.4;
+            transition: width 0.3s ease;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        right: var(--setting-width);
+        width: 2.5rem;
+        height: 2.3rem;
+        padding: 0.6rem 0.8rem;
+        background-color: $dangerColor;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+
+        & > i {
+            color: white !important;
+        }
+
+        &:hover {
+            background-color: $dangerColorHover;
+        }
+    }
+
+    &__content {
+        &__top {
+            padding: 1rem;
+            &__text {
+                font-size: 1rem;
+            }
+            &__sub {
+                font-size: 0.8rem;
+            }
+        }
+
+        &__main {
+            padding: 0 1rem;
+
+            &__item {
+                max-width: calc(var(--setting-width) - 3rem);
+                margin-top: 1rem;
+
+                &__text {
+                    font-size: 0.9rem;
+                }
+
+                .color-choose {
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+
+                    &__white,
+                    &__black,
+                    &__purple,
+                    &__green,
+                    &__red,
+                    &__blue {
+                        width: 1.9rem;
+                        height: 1.9rem;
+                        margin: 0.5rem 0.3rem;
+                        border-radius: 5px;
+                        border: 0.5px solid rgba($color: #000000, $alpha: 0.2);
+                        cursor: pointer;
+
+                        &__checked {
+                            width: 100%;
+                            height: 100%;
+
+                            & > i {
+                                transform: translate(50%, 25%);
+                                color: white !important;
+                                font-size: 0.9rem;
+                            }
+                        }
+                    }
+
+                    &__white__checked > i {
+                        color: black !important;
+                    }
+
+                    &__white {
+                        background: $themeWhiteGradient;
+                    }
+                    &__black {
+                        background: $themeBlackGradient;
+                    }
+                    &__purple {
+                        background: $themePurpleGradient;
+                    }
+                    &__green {
+                        background: $themeGreenGradient;
+                    }
+                    &__red {
+                        background: $themeRedGradient;
+                    }
+                    &__blue {
+                        background: $themeBlueGradient;
+                    }
+                }
+
+                .mod-choose {
+                    display: block;
+                    @include flex(center, flex-start);
+                    border-radius: 5px;
+                    margin-top: 1rem;
+
+                    &__left,
+                    &__right {
+                        border: 0.5px solid $themePurple;
+                        padding: 0.3rem 0.5rem;
+                        font-size: 0.8rem;
+                        color: $themePurple;
+                        cursor: pointer;
+
+                        &.checked {
+                            background-color: $themePurple;
+                            color: $white;
+                        }
+
+                        &:hover {
+                            background-color: $themePurple;
+                            color: $white;
+                        }
+                    }
+
+                    &__left {
+                        border-right: none;
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                    }
+
+                    &__right {
+                        border-left: none;
+                        border-top-right-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

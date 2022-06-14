@@ -1,0 +1,269 @@
+@use '../../scss/abstracts/' as *;
+
+.color-choose {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    &__purple,
+    &__green,
+    &__red,
+    &__blue,
+    &__yellow {
+        width: 1.9rem;
+        height: 1.9rem;
+        margin: 0.5rem 0.3rem;
+        border-radius: 5px;
+        border: 0.5px solid rgba($color: #000000, $alpha: 0.2);
+        cursor: pointer;
+
+        &__checked {
+            width: 100%;
+            height: 100%;
+
+            & > i {
+                transform: translate(50%, 25%);
+                color: white !important;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    &__black {
+        background-color: $themeBlack;
+        &:hover {
+            background-color: $themeBlackHover;
+        }
+    }
+    &__purple {
+        background-color: $themePurple;
+        &:hover {
+            background-color: $themePurpleHover;
+        }
+    }
+    &__green {
+        background-color: $themeGreen;
+        &:hover {
+            background-color: $themeGreenHover;
+        }
+    }
+    &__red {
+        background-color: $themeRed;
+        &:hover {
+            background-color: $themeRedHover;
+        }
+    }
+    &__blue {
+        background-color: $themeBlue;
+        &:hover {
+            background-color: $themeBlueHover;
+        }
+    }
+    &__yellow {
+        background-color: $themeYellow;
+        &:hover {
+            background-color: $themeYellowHover;
+        }
+    }
+}
+
+.note {
+    &__content {
+        background-color: $white;
+        height: 80vh;
+        width: 100%;
+        padding: 1rem;
+
+        &__wrapper {
+            width: 100%;
+            height: 86%;
+            position: relative;
+            @include flex(center, flex-start);
+            border: 1px solid rgba($color: #000000, $alpha: 0.2);
+
+            &__show {
+                z-index: 1;
+                border-right: 1px solid rgba($color: #000000, $alpha: 0.2);
+
+                &__container {
+                    width: 310px;
+                    transition: all 0.3s ease;
+
+                    &__search {
+                        border-bottom: 1px solid
+                            rgba($color: #000000, $alpha: 0.2);
+                        padding: 1rem;
+                        &__input {
+                            width: 100%;
+                            border: 1px solid rgba($color: #000000, $alpha: 0.2);
+                            padding: 0.5rem;
+                            font-size: 1rem;
+                            border-radius: 5px;
+                            outline: none;
+
+                            ::placeholder {
+                                color: $txtColor-Light;
+                            }
+                        }
+                    }
+
+                    &__list {
+                        height: 349px;
+                        max-height: 349px;
+                        overflow-y: scroll;
+
+                        &:hover {
+                            overflow-y: scroll;
+                        }
+                    }
+
+                    ::-webkit-scrollbar {
+                        width: 7px;
+                        visibility: hidden !important;
+                    }
+
+                    ::-webkit-scrollbar-track {
+                        background-color: #f1f1f1;
+                    }
+                    ::-webkit-scrollbar-thumb {
+                        background-color: rgb(179, 179, 179);
+                    }
+
+                    @include tablet {
+                        width: 0;
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+                    }
+                }
+
+                &__btn {
+                    position: absolute;
+                    top: 1rem;
+                    left: 310px;
+                    background-color: $themeRed;
+                    padding: 0.5rem 0.7rem;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    @include flex(center, center);
+                    visibility: hidden;
+
+                    &:hover {
+                        background-color: $themeRedHover;
+                    }
+
+                    & > i {
+                        color: white;
+                    }
+                }
+
+                @include tablet {
+                    position: absolute;
+                    top: 0;
+                    left: -310px;
+                    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
+                    border-right: none;
+                    background-color: white;
+                    transition: all 0.3s ease;
+
+                    &__btn {
+                        top: 1rem;
+                        visibility: visible;
+                        z-index: 0;
+                    }
+                }
+            }
+
+            &__custom {
+                width: auto;
+                border-left: none;
+
+                &__add {
+                    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+                    @include flex(flex-end, flex-end);
+
+                    button.add-note {
+                        color: $white;
+                        border: none;
+                        outline: none;
+                        background-color: $themeGreen;
+                        padding: 0.5rem;
+                        border-radius: 5px;
+                        font-size: 0.8rem;
+                        margin: 1rem;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: $themeGreenHover;
+                        }
+                    }
+                }
+
+                &__change {
+                    padding: 1.5rem;
+
+                    &__edit {
+                        &__textarea {
+                            margin-top: 1rem;
+                            border: 1px solid rgba($color: #000000, $alpha: 0.2);
+                            padding: 1rem;
+                            border-radius: 3px;
+                            font-size: 1rem;
+                            width: 100%;
+
+                            &:focus {
+                                outline: 5px solid
+                                    rgba($color: #6a0de4, $alpha: 0.2);
+                            }
+                        }
+                    }
+
+                    &__color {
+                        margin-top: 2rem;
+                        & > .noteColorChoose {
+                            @include flex(center, flex-start);
+                        }
+                    }
+                }
+
+                @include tablet {
+                    width: 100%;
+                    overflow: hidden;
+                }
+            }
+
+            &.showList {
+                & > .note__content__wrapper__show {
+                    left: 0;
+                    transition: all 0.3s ease;
+                    border-right: 1px solid rgba($color: #000000, $alpha: 0.2);
+                }
+
+                .note__content__wrapper__show__container {
+                    width: 310px;
+                    overflow: visible;
+                    transition: all 0.3s ease;
+                }
+
+                & > .note__content__wrapper__show__btn {
+                    left: 310px;
+                    transition: all 0.3s ease;
+                }
+
+                .note-overlay {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
+.note-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $overlay;
+    opacity: 0.4;
+    visibility: hidden;
+    z-index: 0;
+}

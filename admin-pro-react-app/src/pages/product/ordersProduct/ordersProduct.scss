@@ -1,0 +1,55 @@
+@use '../../../scss/abstracts/' as *;
+
+.orders-product {
+    &__content {
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.8rem;
+        }
+
+        .table-row-left {
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafe;
+        }
+
+        td > img {
+            width: 45px;
+        }
+
+        td > button {
+            text-align: center;
+            border: 1px solid #3c54db;
+            padding: 0.5rem 1rem;
+            background-color: #3c54db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+             
+            &:hover {
+                background-color: white;
+                color: #3c54db;
+                transition: all 0.3s ease;
+            }
+        }
+
+        td > i {
+            color: white;
+            background-color: #ff3737;
+            padding: 0.4rem;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    }
+}

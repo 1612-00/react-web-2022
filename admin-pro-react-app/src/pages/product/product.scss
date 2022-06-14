@@ -1,0 +1,13 @@
+@use '../../scss/abstracts/' as *;
+
+.product {
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+
+        @include mobile {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

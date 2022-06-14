@@ -1,0 +1,105 @@
+@use '../../scss/abstracts/' as *;
+
+.boxChartCircle {
+    margin: 0 1rem;
+    @include tablet {
+        margin-bottom: 2rem;
+    }
+
+    &__content {
+        position: relative;
+        border-radius: 5px;
+        height: 26rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background-color: $oceanColor;
+            top: 20px;
+            left: 0;
+        }
+
+        &__top {
+            @include flex(center, space-between);
+            padding: 1.5rem 0.5rem;
+
+            @include mobile {
+                @include flex(flex-start, flex-start);
+                flex-direction: column;
+            }
+
+            &__title {
+                margin-left: 1rem;
+                font-size: large;
+
+                @include mobile {
+                    font-size: 1.2rem;
+                }
+            }
+
+            &__combo-box {
+                border: 1px solid rgba($color: #fff, $alpha: 0.3);
+                border-radius: 5px;
+                padding: 0.3rem 1rem;
+                margin-right: 1rem;
+
+                @include mobile {
+                    margin: 1rem 0 0 1rem;
+                    width: 93%;
+                }
+
+                & > select {
+                    background-color: $mainColor;
+                    color: $txtColor;
+                    outline: 0;
+                    border: 0;
+                    font-size: medium;
+
+                    @include mobile {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+
+        &__mid {
+            padding: 1rem 3rem;
+            @include flex(center, center);
+            & > svg {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            @include tablet {
+                padding: 1rem 43%;
+            }
+
+            @include mobile {
+                padding: 1rem 35%;
+            }
+        }
+
+        &__bottom {
+            &__item {
+                padding: 0.8rem 2rem;
+                @include flex(center, space-between);
+
+                &__text {
+                    font-size: 0.9rem;
+                }
+
+                &__value {
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                }
+            }
+
+            .progress-bar-hr {
+                padding: 0 1rem;
+                opacity: 0.3;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@use '../../scss/abstracts/' as *;
+
+.box {
+    margin: 0 1rem;
+
+    &__content {
+        position: relative;
+        padding: 1.5rem 0.5rem;
+        border-radius: 5px;
+        @include flex(center, flex-start);
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background-color: $oceanColor;
+            top: calc(50% - 15px);
+            left: 0;
+        }
+
+        &__img {
+            --size: 50px;
+            width: var(--size);
+            height: var(--size);
+            margin-left: 1rem;
+        }
+
+        &__value {
+            margin-left: 1rem;
+
+            &__title {
+                font-size: small;
+                opacity: 0.5;
+            }
+
+            &__value {
+                font-size: x-large;
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+@use '../../scss/abstracts/' as *;
+
+.product-item {
+    width: 100%;
+    height: 100%;
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+
+    &__content {
+        position: relative;
+        border: 1px solid rgba($color: #000000, $alpha: 0.1);
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.13);
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.13);
+
+        &__img {
+            position: relative;
+            width: 100%;
+            height: 20rem;
+            text-align: center;
+            padding: 3rem 2rem;
+            @include flex(center, center);
+
+            & > img {
+                max-width: 55%;
+                max-width: 12rem;
+                object-fit: fill;
+                z-index: 1;
+            }
+
+            &__actions {
+                visibility: hidden;
+                transition: all 0.2s ease;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 3;
+
+                & > i {
+                    font-size: 1.5rem;
+                    padding: 0.5rem;
+                    background-color: white;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        background-color: #3c54db;
+                        color: white;
+                    }
+                }
+
+                & > i ~ i {
+                    margin-left: 0.3rem;
+                }
+
+            }
+
+            &::before {
+                content: '';
+                background-color: #fafafa;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                z-index: -1;
+                left: 0;
+            }
+
+            &:hover {
+                .product-item__content__img__actions {
+                    visibility: visible;
+                    transition: all 0.2s ease;
+                } 
+            }
+
+            &:after {
+                content: '';
+                background-color: #e1e1e1;
+                opacity: 0.5;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                visibility: hidden;
+                transition: all 0.2s ease;                
+            }
+            
+            &:hover::after {
+                visibility: visible;
+                transition: all 0.2s ease;                
+            }
+        }
+
+        &__sub {
+            color: black;
+            background-color: white;
+            padding: 2rem;
+            @include flex(center, space-between);
+
+            &__left {
+                &__name {
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                }
+
+                &__ratingBar {
+                    margin-top: 1rem;
+                    color: #ff9966 !important;
+                }
+
+                &__stock {
+                    font-size: 0.8rem;
+                    margin-top: 1rem;
+                }
+            }
+
+            &__right {
+                &__price {
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

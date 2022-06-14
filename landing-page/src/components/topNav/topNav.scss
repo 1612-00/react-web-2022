@@ -1,0 +1,146 @@
+@use '../../scss/abstracts/' as *;
+
+.topNav {
+    position: relative;
+
+    &__content {
+        @include flex(center, space-between);
+        height: $topNavHeight;
+        padding: 0 2rem;
+        width: auto;
+        border-bottom: 1px solid $black;
+
+        &__left {
+            & > i {
+                font-size: 1.5rem;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.4;
+                }
+            }
+        }
+
+        &__logo {
+            font-size: 1.3rem;
+            font-style: italic;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &__right {
+            @include flex(center, center);
+            font-size: 1.5rem;
+
+            &__cart,
+            &__user {
+                cursor: pointer;
+                &:hover {
+                    opacity: 0.4;
+                }
+            }
+
+            & > * ~ * {
+                margin-left: 1.5rem;
+            }
+        }
+    }
+
+    &__menu {
+        position: absolute;
+        top: 0;
+        left: -16rem;
+        z-index: 10;
+        background-color: rgb(231, 230, 230);
+        width: $menuWidth;
+        height: 100vh;
+        transition: all 0.3s ease;
+
+        &__x {
+            @include flex(center, flex-end);
+
+            & > i {
+                font-size: 1.3rem;
+                cursor: pointer;
+                 
+                &:hover {
+                    background-color: $overlay;
+                    opacity: 0.3;
+                    color: $white;
+                }
+            }
+        }
+
+        &__top {
+            @include flex(center, center);
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        &__container {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        &__item {
+            @include flex(center, flex-start);
+            margin-bottom: 1rem;
+            cursor: pointer;
+            padding: 0.5rem 0 0.5rem 2rem;
+
+            & > i {
+                font-size: 1.4rem;
+                width: 0;
+                visibility: hidden;
+                transition: all 0.2s ease-in-out;
+            }
+
+            &__label {
+                margin-left: 1.5rem;
+            }
+
+            &:hover {
+                background-color: rgb(204, 202, 202);
+
+                & > i {
+                    display: block;
+                    margin-right: 0.5rem;
+                    width: 1rem;
+                    visibility: visible;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+
+            &:last-child {
+                margin-top: auto;
+            }
+        }
+    }
+
+    &__overlay {
+        display: none;
+        background-color: $overlay;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        position: absolute;
+        opacity: 0.3;
+        z-index: 5;
+    }
+
+    &.active {
+        .topNav__overlay {
+            display: block;
+        }
+        .topNav__menu {
+            left: 0;
+            transition: all 0.3s ease;
+        }
+    }
+}

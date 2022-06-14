@@ -1,0 +1,78 @@
+@use '../../scss/abstracts/' as *;
+
+.note-element {
+    @include flex(center, flex-start);
+    width: 100%;
+    height: 6rem;
+    border-top: 1px solid rgba($color: #000000, $alpha: 0.2);
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+    cursor: pointer;
+
+    &.focus {
+        background-color: rgba($color: #000000, $alpha: 0.2);
+    }
+
+    &__color {
+        width: 4px;
+        height: 6rem;
+
+        &.purple {
+            background-color: $themePurple;
+        }
+        &.green {
+            background-color: $themeGreen;
+        }
+        &.red {
+            background-color: $themeRed;
+        }
+        &.blue {
+            background-color: $themeBlue;
+        }
+        &.yellow {
+            background-color: $themeYellow;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        margin: 0 1rem;
+
+        &__text {
+            width: 263px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &__sub {
+            width: 100%;
+            @include flex(center, space-between);
+
+            &__time {
+                font-size: 0.8rem;
+            }
+
+            &__action {
+                @include flex(center, center);
+
+                & > * ~ * {
+                    margin-left: 1rem;
+                }
+
+                &__edit,
+                &__delete {
+                    font-size: 1.3rem;
+                }
+
+                &__edit {
+                    color: blue !important;
+                }
+
+                &__delete {
+                    color: red !important;
+                }
+            }
+        }
+    }
+}
+
