@@ -56,7 +56,7 @@ const Checkout = () => {
                                     }
                                     label={item.title}
                                     placeholder='Enter here...'
-                                    valueCheckout={valueCheckout[index].data}
+                                    // valueCheckout={valueCheckout[index].data}
                                     onChange={(e) =>
                                         handleChangeValueCheckout(index, e)
                                     }
@@ -88,7 +88,7 @@ const Checkout = () => {
                                     }
                                     label={item.title}
                                     placeholder='Enter here...'
-                                    valueCheckout={valueCheckout[index].data}
+                                    // valueCheckout={valueCheckout[index].data}
                                     onChange={(e) =>
                                         handleChangeValueCheckout(index, e)
                                     }

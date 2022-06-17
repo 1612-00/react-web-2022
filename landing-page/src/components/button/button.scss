@@ -1,0 +1,30 @@
+@use "../../scss/abstracts/" as *;
+
+.btn {
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    padding: 1.5rem 3rem;
+
+    &-main {
+        color: $white;
+        background-color: $main-color;
+    }
+
+    &-second {
+        background-color: $second-color;
+    }
+
+    &-sm {
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        padding: 1rem 2rem;
+    }
+}

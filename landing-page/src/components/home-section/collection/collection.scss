@@ -1,0 +1,94 @@
+@use "../../../scss/abstracts/" as *;
+
+.collection {
+    margin-top: 3rem;
+
+    &__content {
+        margin: 4rem 2rem;
+
+        @include mobile {
+            margin: 3rem 1rem;
+        }
+
+        &__col1 {
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 30px;
+            height: 25rem;
+
+            @include tablet {
+                grid-gap: 20px;
+                margin-bottom: 20px;
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        &__col2 {
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            height: 30rem;
+
+            @include tablet {
+                grid-gap: 20px;
+            }
+
+            @include mobile {
+                grid-gap: 20px;
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}
+
+.collection-card {
+    border-radius: 10px;
+    padding: 1rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    &__text {
+        color: $white;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        &::before {
+            content: "";
+            background-color: $white;
+            position: absolute;
+            bottom: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2rem;
+            height: 4px;
+        }
+    }
+
+    &::before {
+        content: "";
+        background-color: $black;
+        border-radius: 10px;
+        opacity: 0.4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 0.2s ease-in-out;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+}

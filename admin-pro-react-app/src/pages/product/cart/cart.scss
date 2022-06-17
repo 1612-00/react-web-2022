@@ -1,0 +1,87 @@
+@use '../../../scss/abstracts/' as *;
+
+.cart {
+    &__content {
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.8rem;
+        }
+
+        .table-row-left {
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafe;
+        }
+
+        td > img {
+            width: 45px;
+        }
+
+        td > input {
+            width: 70px;
+        }
+
+        td > i {
+            color: white;
+            background-color: #ff3737;
+            padding: 0.4rem;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    }
+
+    &__option {
+        margin-top: 2rem;
+        @include flex(flex-start, space-between);
+
+        &-btn {
+            text-align: center;
+            border: 1px solid #3c54db;
+            padding: 1rem;
+            background-color: #3c54db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+             
+            &:hover {
+                background-color: white;
+                color: #3c54db;
+                transition: all 0.3s ease;
+            }
+        }
+
+        &__checkout {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+
+            &__title {
+                font-size: 1.1rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+            &__price {
+                @include flex(flex-start, space-between);
+                font-weight: 600;
+
+                &.subtotal {
+                    font-size: 0.9rem;
+                }
+            }
+            & > .btn-checkout {
+                margin-top: 1rem;
+            }
+        }
+    }
+}

@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ProductItemDetail from '../product-item-detail/ProductItemDetail';
 import './productItem.scss';
 
 const ProductItem = ({ title, item }) => {
     const { image, name, total, price } = item;
+
+    const [openDialog, setOpenDialog] = useState(false);
+
+    const handleOpen = () => {
+        setOpenDialog(true);
+    }
+
+    const handleClose = () => {
+        setOpenDialog(false);
+    }
 
     return (
         <div className='product-item'>
@@ -50,6 +61,11 @@ const ProductItem = ({ title, item }) => {
                         <div className='product-item__content__sub__right__price'>
                             ${price !== '' ? price : '0'}
                         </div>
+                        <div className="link-more" onClick={handleOpen}>
+                            More 
+                            <i class='bx bxs-arrow-to-right'></i>
+                        </div>
+                        <ProductItemDetail open={openDialog} handleClose={handleClose} item={item} />
                     </div>
                 </div>
             </div>

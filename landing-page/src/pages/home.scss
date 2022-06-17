@@ -1,0 +1,16 @@
+@use "../scss/abstracts/" as *;
+
+.home {
+    position: relative;
+    background-color: $overlay;
+
+    &__body {
+        border-radius: 10px;
+        position: relative;
+        margin: 0 2rem;
+        padding-top: 1rem;
+        top: -7rem;
+        z-index: 5;
+        background-color: white;
+    }
+}

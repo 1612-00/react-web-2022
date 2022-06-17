@@ -1,0 +1,58 @@
+@use "../../../../scss/abstracts/" as *;
+
+.product-list {
+    &__content {
+        margin: 4rem 8rem;
+
+        @include minScreen {
+            margin: 4rem 4rem;
+        }
+
+        @include tablet {
+            margin: 2rem 2rem;
+        }
+
+        @include mobile {
+            margin: 2rem 1rem;
+        }
+    }
+}
+
+.swiper,
+.swiper-slide {
+    height: 100%;
+}
+
+.swiper-pagination-bullet {
+    $size: 15px;
+    width: $size;
+    height: $size;
+    border-radius: unset;
+    margin: 10px;
+    background-color: transparent;
+
+    position: relative;
+
+    &::before {
+        content: '';
+        width: 80%;
+        height: 80%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background-color: $second-color;
+    }
+
+    &-active {
+        background-color: transparent;
+
+        &::before {
+            background-color: $main-color;
+        }
+    }
+}
+
+.swiper-pagination {
+    bottom: 0 !important;
+}

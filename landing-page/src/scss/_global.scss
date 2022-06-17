@@ -33,3 +33,20 @@ li {
     list-style-type: none;
 }
 
+.title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: $main-color;
+        bottom: -0.5rem;
+        left: calc(50% - 2.5rem);
+        width: 5rem;
+        height: 5px;
+    }
+}
+

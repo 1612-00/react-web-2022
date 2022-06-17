@@ -120,9 +120,22 @@
             }
 
             &__right {
+                
                 &__price {
                     font-size: 0.8rem;
                     font-weight: 600;
+                }
+
+                & > .link-more {
+                    margin-top: 2rem;
+                    font-size: 0.9rem;
+                    @include flex(center, center);
+                    color: #3c54db;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
                 }
             }
         }

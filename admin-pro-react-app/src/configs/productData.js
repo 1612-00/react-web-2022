@@ -36,6 +36,16 @@ export const ordersTableHead = [
     'Remove',
 ];
 
+// Table head of tab orders
+export const cartTableHead = [
+    'Image',
+    'Title',
+    'Price',
+    'Quantity',
+    'Total',
+    'Remove',
+];
+
 // Data of form input checkout
 export const checkoutOrderListData = [
     {

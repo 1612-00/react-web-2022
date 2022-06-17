@@ -67,9 +67,9 @@
         &__mid {
             padding: 1rem 3rem;
             @include flex(center, center);
-            & > svg {
-                width: 5rem;
-                height: 5rem;
+            & > canvas {
+                max-height: 150px;
+                width: 100% !important;
             }
 
             @include tablet {

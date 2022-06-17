@@ -16,9 +16,9 @@ const Product = () => {
         <div className='product main-page'>
             <div className='product__wrapper'>
                 <div className='product__content'>
-                    {products.map((item, index) => (
+                    {products.length > 0 ? products.map((item, index) => (
                         <ProductItem key={index} item={item} />
-                    ))}
+                    )) : "Not found product!"}
                 </div>
             </div>
         </div>

@@ -13,6 +13,7 @@ import Profile from './pages/profile/Profile';
 import AddProduct from './pages/product/addProduct/AddProduct';
 import OrdersProduct from './pages/product/ordersProduct/OrdersProduct';
 import Checkout from './pages/product/checkout/Checkout';
+import Cart from './pages/product/cart/Cart';
 
 function App() {
     return (
@@ -26,11 +27,12 @@ function App() {
                     <Route path='/apps/notes' element={<Note />} />
                     <Route path='/apps/chat' element={<BlankPage />} />
                     <Route path='/apps/contacts' element={<BlankPage />} />
-                    <Route path='/product' element={<Product />} />
-                    <Route path='/product/add' element={<AddProduct />} />
-                    <Route path='/product/orders' element={<OrdersProduct />} />
-                    <Route path='/product/checkout' element={<Checkout />} />
                     <Route path='/profile' element={<Profile />} />
+                    <Route path='/product' element={<Product />} />
+                    <Route path='/product/checkout' element={<Checkout />} />
+                    <Route path='/product/cart' element={<Cart />} />
+                    <Route path='/productMana/add' element={<AddProduct />} />
+                    <Route path='/productMana/orders' element={<OrdersProduct />} />
                 </Route>
             </Routes>
         </BrowserRouter>

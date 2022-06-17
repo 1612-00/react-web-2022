@@ -1,0 +1,62 @@
+@use "../../../scss/abstracts/" as *;
+
+.header-page {
+    .overlay {
+        position: relative;
+        z-index: 0;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+        }
+    }
+
+    &__content {
+        @include flex(center, center);
+        flex-direction: column;
+        color: $white;
+        height: 80vh;
+
+        &__main-text {
+            font-size: 3rem !important;
+
+            @include tablet {
+                font-size: 2rem !important; 
+            }
+        }
+
+        &__sub-text {
+            margin-top: 5rem;
+            font-size: 1.2rem;
+
+            @include tablet {
+                margin-top: 3rem;   
+                font-size: 1rem;
+            }
+        }
+
+        &__btn {
+            margin-top: 2rem;
+
+            @include tablet {
+                margin-top: 1rem;
+            }
+        }
+
+        &__sub-btn {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+
+            @include tablet {
+                margin-top: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
