@@ -2,6 +2,7 @@
 ## Overview
 ### Frontend:
 - Use library ReactJS, SCSS, MUI, Swiper
+- Responsive website
 - Template Reference: 
     + https://akavo.itech-theme.com/wishlist
     + https://demos.wrappixel.com/premium-admin-templates/react/adminpro-react/main/dashboards/modern
