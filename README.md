@@ -6,6 +6,7 @@
 - Template Reference: 
     + https://akavo.itech-theme.com/wishlist
     + https://demos.wrappixel.com/premium-admin-templates/react/adminpro-react/main/dashboards/modern
+    + https://lucasshoesmaker.com/cart/
 ### Backend:
 - Use framework Express
 - Database: MongooDB
