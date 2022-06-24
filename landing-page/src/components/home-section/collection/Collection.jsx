@@ -1,15 +1,17 @@
 import React from "react";
-import { productType2, productType1 } from "../../../config/Collection";
+import { productType2, productType1 } from "../../../config/Categories";
 import HomeSection from "../HomeSection";
 import "./collection.scss";
+import { Link } from "react-router-dom";
 
-const CollectionCard = ({item}) => (
-    <div
+const CollectionCard = ({ item }) => (
+    <Link
+        to="/shop"
         className="collection-card"
         style={{ backgroundImage: `url(${item.image})` }}
     >
         <div className="collection-card__text">{item.text}</div>
-    </div>
+    </Link>
 );
 
 const Collection = () => {

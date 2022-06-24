@@ -5,7 +5,7 @@ import {
     footerAbout,
     footerCollections,
     footerPlace
-} from "../../../config/Footer";
+} from "../../config/Footer";
 
 const Footer = () => {
     return (

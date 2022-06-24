@@ -1,0 +1,106 @@
+@use "../../scss/abstracts/" as *;
+
+.product-page {
+    &__wrapper {
+        @include flex(flex-start, flex-start);
+        padding: 6rem;
+
+        @include tablet {
+            padding: 4rem;
+            flex-direction: column;
+        }
+
+        @include mobile {
+            padding: 2rem;
+        }
+
+        &__left {
+            flex: 4;
+        }
+
+        &__right {
+            flex: 6;
+            margin-left: 3rem;
+
+            @include tablet {
+                margin-left: 0;
+            }
+
+            & > * ~ * {
+                margin-top: 2rem;
+            }
+
+            &__name {
+                font-size: 1.7rem;
+                font-weight: 700;
+            }
+
+            &__price {
+                font-size: 1.7rem;
+                font-weight: 600;
+            }
+
+            &__category {
+                font-style: 1rem;
+                @include flex(flex-start, flex-start);
+                
+                &__text {
+                    margin-right: 1rem;
+                }
+
+                &__item {
+                    @include flex(center, center);
+                    font-weight: 600;
+                }
+            }
+
+            &__size {
+                @include flex(flex-start, flex-start);
+                &__items {
+                    margin-left: 1rem;
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    grid-gap: 10px;
+                }
+
+                &__item {
+                    outline: 0;
+                    background-color: white;
+                    font-weight: 600;
+                    padding: 0.3rem;
+                    cursor: pointer;
+                    border: 1px solid white;
+                    box-shadow: 2px 3px 10px -2px white;
+                    -webkit-box-shadow: 2px 3px 10px -2px white;
+                    -moz-box-shadow: 2px 3px 10px -2px white;
+
+                    &:hover {
+                        box-shadow: 2px 3px 10px -2px rgba(43, 40, 40, 0.75);
+                        -webkit-box-shadow: 2px 3px 10px -2px rgba(43, 40, 40, 0.75);
+                        -moz-box-shadow: 2px 3px 10px -2px rgba(43, 40, 40, 0.75);
+                    }
+
+                    &.selected {
+                        box-shadow: 2px 3px 10px -2px rgba(43, 40, 40, 0.75);
+                        -webkit-box-shadow: 2px 3px 10px -2px rgba(43, 40, 40, 0.75);
+                        -moz-box-shadow: 2px 3px 10px -2px rgba(43, 40, 40, 0.75);
+                    }
+                }
+            }
+
+            &__add-cart {
+                @include flex(center, flex-start);
+                &__amount {
+                    & > input {
+                        font-size: 1.5rem;
+                        padding: 0.5rem;
+                        width: 5rem;
+                    }
+                }
+                &__btn {
+                    margin-left: 2rem;
+                }
+            }
+        }
+    }
+}

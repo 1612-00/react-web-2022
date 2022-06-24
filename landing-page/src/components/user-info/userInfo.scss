@@ -10,6 +10,7 @@
     transform: scale(0);
     transform-origin: 17.5rem 0;
     transition: all 0.3s ease;
+    z-index: 20;
     border: 1px solid rgba($color: #000000, $alpha: 0.2);
 
     &.show {
@@ -20,7 +21,7 @@
     &__top {
         @include flex(center, flex-start);
         color: $black;
-        background-color: #ccc;
+        background-color: white;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
 
@@ -57,28 +58,33 @@
 
     &__selected {
         padding: 0;
+        color: $white;
+        background-color: black;
     }
 
     &__setting {
         padding: 0;
+        color: $white;
+        background-color: black;
     }
 
     &__logout {
-        margin: 1rem 0 1rem 0;
-        padding: 0;
+        padding: 1rem 0 1rem 0;
+        color: $white;
+        background-color: black;
 
         & > button {
             cursor: pointer;
             margin-left: 2rem;
             border: 0;
             outline: 0;
-            background-color: rgb(230, 100, 100);
+            background-color: $main-color;
             padding: 0.4rem 0.6rem;
             border-radius: 4px;
             color: white;
 
             &:hover {
-                background-color: rgb(190, 81, 81);
+                background-color: rgb(211, 61, 61);
             }
         }
     }
@@ -104,5 +110,5 @@
 }
 
 hr {
-    opacity: 0.2;
+    opacity: 0.5;
 }

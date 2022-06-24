@@ -2,6 +2,7 @@ import React from "react";
 import "./headerPage.scss";
 import HomeSection from "../HomeSection";
 import Button from "../../button/Button";
+import { Link } from "react-router-dom";
 
 const HeaderPage = () => {
     return (
@@ -20,9 +21,9 @@ const HeaderPage = () => {
                 <div className="header-page__content__sub-text">
                     Enjoy secret offers up to -70% off
                 </div>
-                <div className="header-page__content__btn">
+                <Link to="/shop" className="header-page__content__btn">
                     <Button className="btn-main">Buy now</Button>
-                </div>
+                </Link>
                 <div className="header-page__content__sub-btn">
                     Discover the experience
                 </div>

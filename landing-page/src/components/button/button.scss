@@ -12,10 +12,17 @@
     &-main {
         color: $white;
         background-color: $main-color;
+        &:hover {
+            background-color: rgb(249, 34, 109);
+        }
     }
 
     &-second {
+        color: $white;
         background-color: $second-color;
+        &:hover {
+            opacity: 0.8;
+        }
     }
 
     &-sm {

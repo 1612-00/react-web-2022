@@ -1,27 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { formatNumber } from "../../../../constants/Algorithm";
 import Button from "../../../button/Button";
 import "./productCard.scss";
 
 const ProductCard = ({ data }) => {
-    const formatNumber = (num) => {
-        var arrayNum = num.toString(10).split("");
-        var strNum = "";
-        arrayNum.map((n, i) => {
-            if (
-                (arrayNum.length - 1 - i) % 3 === 0 &&
-                i !== arrayNum.length - 1
-            )
-                strNum += n + ",";
-            else strNum += n;
-        });
-
-        return strNum;
-    };
-
     return (
-        <div className="product-card">
+        <Link to={`/product/${data._id}`} className="product-card">
             <div className="product-card__img">
-                <img src={data.img} alt="img" />
+                <img
+                    src={`http://localhost:4000/${data.image.split("\\").slice(1)}`}
+                    alt="img"
+                />
             </div>
             {data.discount !== 0 && (
                 <div className="product-card__discount">
@@ -51,7 +41,7 @@ const ProductCard = ({ data }) => {
                     Add to Cart
                 </Button>
             </div>
-        </div>
+        </Link>
     );
 };
 

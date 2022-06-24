@@ -18,6 +18,7 @@ const OrdersProduct = () => {
                 <div className='orders-product__content'>
                     <div className='box-title'>Full Order List</div>
                     <table className='orders-product__table'>
+                        <thead>
                         <tr className='orders-product__table__head'>
                             {ordersTableHead.map((item, index) => (
                                 <th
@@ -30,6 +31,8 @@ const OrdersProduct = () => {
                                 </th>
                             ))}
                         </tr>
+                        </thead>
+                        <tbody>
                         {products.map((item, index) => (
                             <tr
                                 className='orders-product__table__row'
@@ -60,6 +63,7 @@ const OrdersProduct = () => {
                                 </td>
                             </tr>
                         ))}
+                        </tbody>
                     </table>
                 </div>
             </div>

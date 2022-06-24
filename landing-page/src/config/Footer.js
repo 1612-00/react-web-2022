@@ -18,8 +18,8 @@ export const footerInfo = {
         {
             icon: <i class="bx bx-map-pin"></i>,
             value: [
-                "🏠Store 1- 67 Cù Chính Lan, Thanh Xuân, Hà Nội",
-                "🏠Store 2- 87 Mai Dịch, Cầu Giấy, Hà Nội"
+                "🏠Store 1- Thanh Xuân, Hà Nội",
+                "🏠Store 2- Mai Dịch, Cầu Giấy, Hà Nội"
             ]
         },
         {

@@ -30,7 +30,7 @@ const ProductAddTab = ({ enterNewProduct }) => {
         formData.append("image", newValue[0].data)
         formData.append("name", newValue[1].data)
         formData.append("price", newValue[2].data)
-        formData.append("total", newValue[3].data)
+        formData.append("discount", newValue[3].data)
         await addProduct(formData);
     }
 
@@ -46,6 +46,8 @@ const ProductAddTab = ({ enterNewProduct }) => {
                         <input
                             type={item.type}
                             name={item.section}
+                            min={item.type === "number" ? 1 : undefined}
+                            step={item.type === "number" ? 1 : undefined}
                             value={index !== 0 ? value[index].data : undefined}
                             className={`form-input__content__item__input ${item.type}`}
                             onChange={(e) => handleChangeInput(e, index)}
@@ -90,7 +92,7 @@ const AddProduct = () => {
                     <ProductAddTab enterNewProduct={enterNewProduct} />
                 </div>
                 <div className="productAdd__show box-item-layout">
-                    <ProductItem title='Show product' item={newProduct} />
+                    <ProductItem title='Show product' item={newProduct} formTest={true} />
                 </div>
             </div>
         </div>

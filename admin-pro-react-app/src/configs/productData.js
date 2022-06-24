@@ -7,7 +7,7 @@ export const productAddFormData = [
         type: 'file',
     },
     {
-        title: 'Title',
+        title: 'Name',
         section: 'name',
         data: '',
         type: 'text',
@@ -16,13 +16,19 @@ export const productAddFormData = [
         title: 'Price',
         section: 'price',
         data: '',
-        type: 'text',
+        type: 'number',
     },
     {
-        title: 'Total',
-        section: 'total',
+        title: 'Discount',
+        section: 'discount',
         data: '',
-        type: 'text',
+        type: 'number',
+    },
+    {
+        title: 'Description',
+        section: 'description',
+        data: '',
+        type: 'text-area',
     },
 ];
 

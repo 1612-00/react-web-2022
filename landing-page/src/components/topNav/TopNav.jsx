@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
-import UserInfo from '../user-info/UserInfo';
-import './topNav.scss';
+import { Badge } from "@mui/material";
+import React, { useContext, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { collections } from "../../config/Categories";
+import { CartContext } from "../../contexts/CartContext";
+import "./topNav.scss";
 
 const TopNav = () => {
+    // Cart context
+    const {
+        cartState: { products }
+    } = useContext(CartContext);
+
+    const topNavRef = useRef(null);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [boxInfoState, setBoxInfoState] = useState(false);
 
@@ -15,66 +24,56 @@ const TopNav = () => {
     };
 
     return (
-        <div className={`topNav ${isOpenMenu ? 'active' : ''}`}>
-            <div className='topNav__content'>
-                <div className='topNav__content__left'>
-                    <i class='bx bx-menu-alt-left' onClick={handleOpenMenu}></i>
+        <div ref={topNavRef} className={`topNav ${isOpenMenu ? "active" : ""}`}>
+            <div className="topNav__content">
+                <div className="topNav__content__left">
+                    <Link to="/" className="topNav__content__left__logo">
+                        Logo
+                    </Link>
+                    {/* <div className="topNav__content__left__links__x">
+                            <i class="bx bx-x" onClick={handleOpenlinks}></i>
+                        </div> */}
+                    <ul className="topNav__content__left__links">
+                        {collections.map((item, index) => (
+                            <Link
+                                to={`/shop/${item.params}`}
+                                className="topNav__content__left__links__item"
+                                key={index}
+                            >
+                                <div className="topNav__content__left__links__item__label">
+                                    {item.title}
+                                </div>
+                            </Link>
+                        ))}
+                    </ul>
                 </div>
-                <div className='topNav__content__logo'>Logo</div>
-                <div className='topNav__content__right'>
-                    <div className='topNav__content__right__cart'>
-                        <i class='bx bx-cart'></i>
-                    </div>
-                    <div className='topNav__content__right__user'>
-                        <i class='bx bx-user' onClick={showBoxInfo}></i>
+                <div className="topNav__content__right">
+                    <Link to="/cart" className="topNav__content__right__cart">
+                        <Badge badgeContent={products.length} color="error">
+                            <i class="bx bx-cart"></i>
+                        </Badge>
+                    </Link>
+                    {isOpenMenu ? (
+                        <i
+                            class="bx bx-x"
+                            onClick={handleOpenMenu}
+                        ></i>
+                    ) : (
+                        <i
+                            class="bx bx-menu"
+                            onClick={handleOpenMenu}
+                        ></i>
+                    )}
+
+                    {/* <div className="topNav__content__right__user">
+                        <i class="bx bx-user" onClick={showBoxInfo}></i>
                     </div>
                     <UserInfo
                         show={boxInfoState === true ? true : false}
                         handleShowBox={showBoxInfo}
-                    />
+                    /> */}
                 </div>
             </div>
-            <div className='topNav__menu'>
-                <div className='topNav__menu__x'>
-                    <i class='bx bx-x' onClick={handleOpenMenu}></i>
-                </div>
-                <div className='topNav__menu__top'>Logo</div>
-                <ul className='topNav__menu__container'>
-                    <li className='topNav__menu__item'>
-                        <i class='bx bx-home'></i>
-                        <div className='topNav__menu__item__label'>
-                            Trang chủ
-                        </div>
-                    </li>
-                    <li className='topNav__menu__item'>
-                        <i class='bx bxs-component'></i>
-                        <div className='topNav__menu__item__label'>
-                            Sản phẩm
-                        </div>
-                    </li>
-                    <li className='topNav__menu__item'>
-                        <i class='bx bx-cart'></i>
-                        <div className='topNav__menu__item__label'>
-                            Giỏ hàng
-                        </div>
-                    </li>
-                    <li className='topNav__menu__item'>
-                        <i class='bx bx-search'></i>
-                        <div className='topNav__menu__item__label'>
-                            Tìm kiếm
-                        </div>
-                    </li>
-                    <li className='topNav__menu__item'>
-                        <i class='bx bx-help-circle'></i>
-                        <div className='topNav__menu__item__label'>Hỗ trợ</div>
-                    </li>
-                    <li className='topNav__menu__item'>
-                        <i class='bx bx-log-out-circle'></i>
-                        <div className='topNav__menu__item__label'>Logout</div>
-                    </li>
-                </ul>
-            </div>
-            <div className='topNav__overlay'></div>
         </div>
     );
 };
