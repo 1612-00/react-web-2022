@@ -13,15 +13,21 @@
 ## Landing-page
 - Home page
 
-![landing-page-1](https://user-images.githubusercontent.com/61639718/174820522-8fd0d5eb-908d-4af0-a73e-381c04f3957c.png)
+![landing-page-1](https://user-images.githubusercontent.com/61639718/175457180-a4f0bfd4-78fb-4959-a9b2-0cb0f4b633e4.png)
+
 
 - Shop page
 
-![landing-page-2](https://user-images.githubusercontent.com/61639718/174820596-72a1b9f2-87ca-4425-8fac-5db5ca40da77.png)
+![landing-page-2](https://user-images.githubusercontent.com/61639718/175457546-20b5f210-250e-4020-a421-77f2079bbe7b.png)
 
 - Product detail page
 
-![landing-page-3](https://user-images.githubusercontent.com/61639718/174820600-c70123d1-80d4-40e8-a7dd-b798286ea2df.png)
+![landing-page-3](https://user-images.githubusercontent.com/61639718/175457564-07bcc6df-3002-46e8-b188-1588fa578f1a.png)
+
+- Cart page
+
+![landing-page-4](https://user-images.githubusercontent.com/61639718/175457227-b7337ab7-d0d1-4dd2-a751-24c7ca89e17a.png)
+
 ## Admin dashboard
 - Login page
 
