@@ -88,7 +88,8 @@ const FilterBySize = () => {
 
 const Shop = () => {
     const {
-        productState: { products }
+        productState: { products },
+        getAllProduct
     } = useContext(ProductContext);
 
     const { category, category2 } = useParams();
@@ -120,28 +121,30 @@ const Shop = () => {
 
     // get data by params
     const getDataByParams = () => {
-        if (category === undefined) setListFilterByCategory(products);
-        else if (category2 === undefined)
-            setListFilterByCategory(
-                products.filter((item) =>
+        if (products.length !== 0) {
+            if (category === undefined) setListFilterByCategory(products);
+            else if (category2 === undefined)
+                setListFilterByCategory(
+                    products.filter((item) =>
+                        item.categories.find((item1) => item1 === category)
+                    )
+                );
+            else {
+                const filterByCategory1 = products.filter((item) =>
                     item.categories.find((item1) => item1 === category)
-                )
-            );
-        else {
-            const filterByCategory1 = products.filter((item) =>
-                item.categories.find((item1) => item1 === category)
-            );
-            setListFilterByCategory(
-                filterByCategory1.filter((item) =>
-                    item.categories.find((item1) => item1 === category2)
-                )
-            );
+                );
+                setListFilterByCategory(
+                    filterByCategory1.filter((item) =>
+                        item.categories.find((item1) => item1 === category2)
+                    )
+                );
+            }
         }
     };
 
     useEffect(() => {
         getDataByParams();
-    }, [category, category2]);
+    }, [category, category2, products]);
 
     useEffect(() => {
         window.scrollTo(0, 0);

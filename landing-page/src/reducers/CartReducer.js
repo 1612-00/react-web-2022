@@ -1,6 +1,7 @@
 import {
     ADD_PRODUCT_TO_CART,
     CHANGE_AMOUNT_OF_PRODUCT,
+    LOAD_CART,
     REMOVE_PRODUCT
 } from "../constants/ActionType";
 
@@ -8,6 +9,12 @@ export const CartReducer = (state, action) => {
     const { type, payload } = action;
 
     switch (type) {
+        case LOAD_CART:
+            return {
+                ...state,
+                products: payload
+            };
+
         case ADD_PRODUCT_TO_CART:
             const newProducts1 = [...state.products, payload];
             storeCartToLocalStorage(newProducts1);

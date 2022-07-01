@@ -1,0 +1,11 @@
+@use "../../scss/abstracts/" as *;
+
+.location-form {
+    &__wrapper {
+        margin: 1rem 0;
+    }
+
+    &__item {
+        margin-bottom: 1rem;
+    }
+}

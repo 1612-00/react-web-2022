@@ -6,7 +6,6 @@ import Button from "../../components/button/Button";
 import Footer from "../../components/footer/Footer";
 import TopNav from "../../components/topNav/TopNav";
 import { collectionSize } from "../../config/Categories";
-import { bestSelling } from "../../config/Product";
 import { formatNumber } from "../../constants/Algorithm";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";

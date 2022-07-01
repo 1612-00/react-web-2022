@@ -71,7 +71,6 @@ router.post("/", upload.single("image"), async (req, res) => {
             product: newProduct
         });
     } catch (error) {
-        console.log(error);
         return res
             .status(500)
             .json({ success: false, message: "Internal server error" });

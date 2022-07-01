@@ -1,6 +1,6 @@
-@use '../scss/abstracts/' as *;
+@use "../scss/abstracts/" as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 * {
     padding: 0;
@@ -9,6 +9,7 @@
 }
 
 html {
+    scroll-behavior: smooth;
     // overflow-x: hidden;
 }
 
@@ -49,4 +50,3 @@ li {
         height: 5px;
     }
 }
-

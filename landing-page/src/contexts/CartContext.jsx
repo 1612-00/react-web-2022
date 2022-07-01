@@ -1,7 +1,10 @@
+import axios from "axios";
 import { createContext, useEffect, useReducer } from "react";
 import {
     ADD_PRODUCT_TO_CART,
+    apiUrl,
     CHANGE_AMOUNT_OF_PRODUCT,
+    LOAD_CART,
     REMOVE_PRODUCT
 } from "../constants/ActionType";
 import { CartReducer } from "../reducers/CartReducer";
@@ -17,6 +20,20 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
     const [cartState, dispatch] = useReducer(CartReducer, initialState);
+
+    // Load cart
+    const loadCart = () => {
+        try {
+            const productsInCart =
+                localStorage.getItem("cart") === null
+                    ? []
+                    : JSON.parse(localStorage.getItem("cart"));
+
+            dispatch({ type: LOAD_CART, payload: productsInCart });
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     // Add a product to cart
     const addProduct = (product) => {
@@ -48,7 +65,9 @@ const CartContextProvider = ({ children }) => {
 
     // Change amount of product in cart
     const changeAmountOfProduct = (index, value) => {
-        const newProduct = cartState.products.find((item, idx)=> idx === index)
+        const newProduct = cartState.products.find(
+            (item, idx) => idx === index
+        );
         newProduct.amount = value;
         try {
             dispatch({
@@ -60,11 +79,43 @@ const CartContextProvider = ({ children }) => {
         }
     };
 
+    // Checkout
+    const checkout = async (customerInfo, otherInfo, cart) => {
+        if (
+            !customerInfo.name ||
+            !customerInfo.address ||
+            !customerInfo.phone
+        ) {
+            return false;
+        }
+        try {
+            const newBill = {
+                cusName: customerInfo.name,
+                cusAddress: customerInfo.address,
+                cusPhone: customerInfo.phone,
+                anotherName: otherInfo.name,
+                anotherAddress: otherInfo.address,
+                anotherPhone: otherInfo.phone,
+                note: otherInfo.note,
+                cart
+            };
+            const res = await axios.post(`${apiUrl}/bill`, newBill);
+            if (res.data.success) {
+                return true;
+            }
+        } catch (error) {
+            if (error.response.data) return error.response.data;
+            else console.log(error);
+        }
+    };
+
     const CartContextData = {
         cartState,
+        loadCart,
         addProduct,
         removeProduct,
-        changeAmountOfProduct
+        changeAmountOfProduct,
+        checkout
     };
 
     return (
